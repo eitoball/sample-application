@@ -1,0 +1,11 @@
+FROM node:14-buster
+
+RUN useradd -d /app -m -r -s /bin/bash app-user
+WORKDIR /app
+ADD ./Applications/client ./
+
+RUN npm install
+RUN npx next build
+
+USER app-user
+CMD ["npx", "next", "start"]

@@ -1,0 +1,9 @@
+FROM node:14-buster
+
+RUN mkdir /tests
+WORKDIR /tests
+ADD ./E2eTests ./
+
+RUN npm install
+
+CMD ["npx", "codeceptjs", "run"]

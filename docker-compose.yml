@@ -1,0 +1,14 @@
+version: "3"
+services:
+  applications_client:
+    build:
+      context: .
+      dockerfile: Dockerfile.Applications.client
+  e2e_test:
+    build:
+      context: .
+      dockerfile: Dockerfile.E2eTests
+    environment:
+      CODECEPT_URL: http://applications_client:3000
+    volumes:
+      - ./output:/tests/output
