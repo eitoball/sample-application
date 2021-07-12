@@ -7,5 +7,6 @@ ADD ./Applications/client ./
 RUN npm install
 RUN npx next build
 
+EXPOSE 3000
 USER app-user
 CMD ["npx", "next", "start"]
